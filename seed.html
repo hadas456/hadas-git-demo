@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head><meta charset="UTF-8"><title>Seed User</title></head>
+<body>
+<h1>יוצר/מעידכן משתמש דמו...</h1>
+<script>
+(function(){
+  var users = JSON.parse(localStorage.getItem('users')||'[]');
+  var norm = 'user@example.com';
+  var found = users.find(u => (u.email||'').toLowerCase() === norm);
+  if (!found) {
+    users.push({name:'Demo', email:norm, password:'1234', address:'', purchases:[]});
+  } else {
+    found.password = '1234';
+  }
+  localStorage.setItem('users', JSON.stringify(users));
+  localStorage.removeItem('currentUser');
+  setTimeout(function(){ window.location.href = 'login.html'; }, 500);
+})();
+</script>
+</body></html>

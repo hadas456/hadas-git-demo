@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>התחברות</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="user.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- ההדר הקיים -->
+  <header class="zh-header">
+    <div class="zh-left">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="לוגו האתר" class="site-logo">
+      </a>
+    </div>
+    <div class="zh-center">
+      <input type="text" id="searchInput" class="zh-search" placeholder="SEARCH" />
+    </div>
+    <div class="zh-right">
+      <div class="zh-left">
+        <a href="login.html" id="loginLink">LOGIN </a>&nbsp;
+        <a href="#">HELP </a>&nbsp;
+        <a href="cart.html">BASKET (<span id="cartCount">0</span>)</a>&nbsp;
+      </div>
+    </div>
+  </header>
+
+  <!-- עמוד התחברות -->
+  <main class="auth-page">
+    <section class="auth-card">
+      <h1 class="auth-title">התחברות</h1>
+
+      <form id="loginForm" class="auth-form">
+        <div class="form-group">
+          <label for="email">אימייל</label>
+          <input type="email" id="email" required placeholder="name@email.com">
+        </div>
+
+        <div class="form-group">
+          <label for="password">סיסמה</label>
+          <input type="password" id="password" required placeholder="••••••••">
+        </div>
+
+        <button type="submit" class="btn-primary auth-submit">התחבר</button>
+
+        <p class="auth-meta">
+          אין לך חשבון?
+          <a href="register.html">הרשמה</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("loginForm");
+  const submitBtn = form?.querySelector('button[type="submit"]');
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value.trim();
+    const password = form.querySelector('input[type="password"]').value;
+
+    try {
+      if (typeof loginUser !== "function") {
+        alert("user.js לא נטען – בדקי שהקובץ קיים באותה תיקייה");
+        return;
+      }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "מתחבר..."; }
+      await loginUser({ email, password });
+      if (window.updateCartCount) window.updateCartCount();
+      window.location.href = "index.html";
+    } catch (err) {
+      alert(err?.message || "שגיאת התחברות");
+    } finally {
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "התחבר"; }
+    }
+  });
+});
+</script>
+    
+  
+</body>
+</html>

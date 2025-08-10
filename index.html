@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>k o s</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <!-- Header (Zara-like) -->
+  <header class="zh-header">
+    <div class="zh-left">
+      <a href="index.html" class="logo-link">
+        <img src="logo.png" alt="לוגו האתר" class="site-logo">
+      </a>
+    </div>
+  
+    <div class="zh-center">
+      <input type="text" id="searchInput" class="zh-search" placeholder="SEARCH" />
+    </div>
+  
+    <div class="zh-right">
+      <div class="zh-left">
+        <a href="login.html" id="loginLink">LOGIN</a>&nbsp;
+<span id="userArea"></span>
+
+        <a href="#">HELP </a>&nbsp;
+        <a href="cart.html">BASKET (<span id="cartCount">0</span>)</a>&nbsp;
+        
+      </div>
+      <button id="hamburger" class="hamburger" aria-label="תפריט">☰</button>
+
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h2>NEW COLLECTION</h2>
+      <a href="#" class="btn">SHOP NOW</a>
+    </div>
+  </section>
+  
+
+  
+  <!-- Overlay + Side Menu (categories from API) -->
+  <div class="side-overlay" id="sideOverlay"></div>
+  <aside class="side-menu" id="sideMenu" aria-hidden="true">
+    <nav>
+      <h3 class="side-title">קטגוריות</h3>
+      <ul id="sideCategories"></ul>
+    </nav>
+  </aside>
+
+
+  <!-- Bottom thin menu -->
+  <nav class="bottom-menu">
+    <a href="#">SALE</a>
+    <a href="#">RECIPES</a>
+    <a href="#">COLLECTIONS</a>
+    <a href="#">NEW IN</a>
+  </nav>
+
+  <!-- Main content: products -->
+  <main class="container section">
+    <section class="section">
+      <h2 class="section-title" id="productsTitle">מוצרים חדשים</h2>
+      <div id="new-arrivals" class="product-row"></div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">קידום מכירות</h2>
+      <div id="promotions" class="product-row"></div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>© h o m e — all rights reserved</p>
+    </div>
+  </footer>
+
+</body>
+</html>

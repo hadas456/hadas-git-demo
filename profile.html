@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>הפרופיל שלי</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="app.js" defer></script>
+  <script src="user.js" defer></script>
+
+</head>
+<body>
+  <main class="container section profile-page">
+
+    <header class="zh-header">
+        <div class="zh-left">
+          <a href="index.html" class="logo-link">
+            <img src="logo.png" alt="לוגו האתר" class="site-logo">
+          </a>
+        </div>
+        <div class="zh-center">
+          <input type="text" id="searchInput" class="zh-search" placeholder="SEARCH" />
+        </div>
+        <div class="zh-right">
+          <div class="zh-left">
+            <a href="login.html" id="loginLink">LOGIN </a>&nbsp;
+            <a href="#">HELP </a>&nbsp;
+            <a href="cart.html">BASKET (<span id="cartCount">0</span>)</a>&nbsp;
+          </div>
+        </div>
+      </header>
+    
+    <section class="profile-card">
+      <h1 class="section-title">הפרופיל שלי</h1>
+      <div id="userInfo" class="profile-info"></div>
+      <h2 class="section-title">רכישות קודמות</h2>
+      <div id="orders" class="orders-list"></div>
+    </section>
+  </main>
+
+  <script src="profile.js"></script>
+</body>
+</html>
